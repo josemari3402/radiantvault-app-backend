@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app) # Gives React permission to talk to Python
 
 # Connect to the local Vault
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('radiantvault-loadoutlab.azurewebsites.net')
 db = client['radiant_vault']
 users_collection = db['users']
 
