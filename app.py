@@ -46,6 +46,7 @@ def login():
         }), 200
     
     return jsonify({"message": "INVALID CREDENTIALS"}), 401
+
 @app.route('/api/save-loadout', methods=['POST'])
 def save_loadout():
     data = request.json
@@ -61,3 +62,11 @@ def save_loadout():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
+@app.route('/api/night-market/roll', methods=['POST'])
+def roll_market():
+    # 1. Get user from DB
+    # 2. Pick 6 random skins from your 'skins' collection
+    # 3. Assign each a random discount (e.g., 10% to 45%)
+    # 4. Save this 'market' array to the user's document
+    return jsonify({"market": market_data})
