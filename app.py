@@ -12,7 +12,7 @@ CORS(app, resources={r"/api/*": {"origins": "https://salmon-desert-059193300.7.a
 
 # --- FIX: Use Environment Variables for Production ---
 # Locally, it uses localhost. In Azure, it will look for 'MONGO_URI' config.
-MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017')
+MONGO_URI = mongodb+srv://odysseus:sonic_22@radiant-vault-db.global.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
 client = MongoClient(MONGO_URI)
 db = client['radiant_vault']
 users_collection = db['users']
