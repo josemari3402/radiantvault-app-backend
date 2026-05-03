@@ -8,7 +8,11 @@ import os
 app = Flask(__name__)
 
 # Allow your specific Azure Static Web App to communicate with this backend
-CORS(app, resources={r"/api/*": {"origins": "https://salmon-desert-059193300.7.azurestaticapps.net"}})
+# Allow both your live site AND your local dev server
+CORS(app, resources={r"/api/*": {"origins": [
+    "https://salmon-desert-059193300.7.azurestaticapps.net", 
+    "http://localhost:5173"
+]}})
 
 # --- DATABASE CONNECTION ---
 # Integrated your Azure Cosmos DB for MongoDB connection string
